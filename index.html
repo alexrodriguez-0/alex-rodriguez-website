@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Alexander Rodriguez studies galaxy cluster dynamics, weak lensing, escape velocities, cosmology, teaching, outreach, quantitative finance, and alpha research."
+    >
+    <title>Alexander Rodriguez | Galaxy Cluster Dynamics and Cosmology</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]] },
+        svg: { fontCache: "global" },
+      };
+    </script>
+    <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Alexander Rodriguez home">
+        <span class="brand-mark">AR</span>
+        <span class="brand-text">Alexander Rodriguez</span>
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#research">Research</a>
+        <a href="#phase-space">Dynamics</a>
+        <a href="#cosmology">Cosmology</a>
+        <a href="#lensing">Lensing</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#finance">Finance</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <canvas
+          id="hero-cluster"
+          class="hero-cluster"
+          aria-label="Animated galaxy cluster with moving galaxies and strong-lensing arcs"
+        ></canvas>
+        <div class="hero-scrim" aria-hidden="true"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">Welcome.</p>
+          <h1 id="hero-title">I turn galaxy clusters into cosmological laboratories.</h1>
+          <p class="hero-copy">
+            I am a 6th-year PhD student at the University of Michigan and a
+            Caltech/IPAC Visiting Research Fellow, studying galaxy cluster dynamics,
+            weak lensing, and the expansion history of the Universe.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#research">Explore the research</a>
+            <a class="button secondary" href="https://drive.google.com/file/d/1KnfhIVu_Jttw-4w8UOl9AXfZHF-bcs9o/view?usp=drive_link">CV</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section narrative" id="research" aria-labelledby="research-title">
+        <div class="section-kicker">Research Overview</div>
+        <div class="section-heading">
+          <h2 id="research-title">From dynamics to cosmology.</h2>
+          <p>I turn galaxy clusters into cosmological laboratories.</p>
+        </div>
+
+        <div class="research-arc" aria-label="Research overview">
+          <article class="arc-panel reveal">
+            <span class="arc-number">01</span>
+            <h3>Phase-space dynamics</h3>
+            <p>
+              Galaxy redshifts define a projected radius-velocity space. The fastest
+              galaxies trace the energy scale needed to escape the cluster potential.
+            </p>
+          </article>
+          <article class="arc-panel reveal">
+            <span class="arc-number">02</span>
+            <h3>Weak lensing and structure</h3>
+            <p>
+              Galaxy shear maps projected mass. I use weak lensing to study cluster
+              substructure and identify candidate cosmic-web filaments.
+            </p>
+          </article>
+          <article class="arc-panel reveal">
+            <span class="arc-number">03</span>
+            <h3>Cosmological acceleration</h3>
+            <p>
+              Escape from a cluster depends on mass and on the accelerated expansion
+              of the background universe.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section lab-section" id="phase-space" aria-labelledby="phase-title">
+        <div class="section-kicker">Phase-Space Dynamics</div>
+        <div class="interactive-grid">
+          <div class="section-copy reveal">
+            <h2 id="phase-title">The fastest cluster galaxies measure the potential.</h2>
+            <p>
+              The escape edge is the outer boundary of the radius-velocity diagram.
+              More massive clusters have deeper potentials, so their fastest galaxies
+              reach higher velocities. Sparse sampling lowers the measured edge.
+            </p>
+          </div>
+
+          <div class="phase-lab reveal" aria-label="Mass and escape-edge simulator">
+            <div class="lab-controls">
+              <div class="slider-control">
+                <span class="control-end">less massive</span>
+                <label>
+                  <span class="tool-label">Cluster mass</span>
+                  <input
+                    id="mass-slider"
+                    type="range"
+                    min="70"
+                    max="140"
+                    value="100"
+                    step="2"
+                    aria-label="Cluster mass scale"
+                  >
+                </label>
+                <span class="control-end">more massive</span>
+              </div>
+              <div class="slider-control">
+                <span class="control-end">less sampling</span>
+                <label>
+                  <span class="tool-label">Spectroscopic sampling</span>
+                  <input
+                    id="sampling-slider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="55"
+                    step="1"
+                    aria-label="Spectroscopic sampling"
+                  >
+                </label>
+                <span class="control-end">more sampling</span>
+              </div>
+            </div>
+            <canvas id="phase-canvas" width="920" height="620" aria-label="Simulated phase-space escape edge"></canvas>
+            <div class="metric-row compact-metric" aria-label="Measured edge fraction">
+              <div>
+                <span>Measured edge</span>
+                <strong id="edge-metric">82% of true profile</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-highlights" aria-label="Escape velocity papers">
+          <article class="paper-card reveal">
+            <img src="assets/research/as1063-focused.png" alt="Focused AS1063 mass comparison figure">
+            <div>
+              <p class="project-tag">AS1063</p>
+              <h3>Escape Velocity Mass of AS1063</h3>
+              <p>
+                A disturbed massive cluster where the escape-velocity mass agrees with
+                lensing and SZ estimates.
+              </p>
+              <a href="https://doi.org/10.3847/1538-4357/ad3de3">Rodriguez et al. 2024</a>
+            </div>
+          </article>
+
+          <article class="paper-card reveal">
+            <img src="assets/research/thesis-p04-img01.png" alt="Weak-lensing mass versus escape-velocity mass figure">
+            <div>
+              <p class="project-tag">Cluster Sample</p>
+              <h3>Weak Lensing and Escape-Velocity Concordance</h3>
+              <p>
+                A larger cluster sample showing strong agreement between independent
+                lensing and escape-velocity mass estimates.
+              </p>
+              <a href="https://doi.org/10.3847/1538-4357/ae18ce">Rodriguez &amp; Miller 2025</a>
+            </div>
+          </article>
+
+          <article class="paper-card reveal">
+            <img src="assets/research/velocity-bias.png" alt="Predicted velocity bias for 45 clusters from simulations">
+            <div>
+              <p class="project-tag">Velocity Dispersions</p>
+              <h3>Galaxy Velocity Bias in Galaxy Cluster Observations</h3>
+              <p>
+                We measure \(\sigma_v\) for 45 clusters in observations and measure
+                the predicted velocity bias to be at the same level as relative
+                differences in cosmological simulations.
+              </p>
+              <p class="paper-citation">Rodriguez et al. 2026a (in prep)</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section cosmo-section" id="cosmology" aria-labelledby="cosmo-title">
+        <div class="section-kicker">Cosmology</div>
+        <div class="interactive-grid reverse">
+          <div class="section-copy reveal">
+            <h2 id="cosmo-title">A dynamical probe of dark energy.</h2>
+            <p>
+              The escape velocity profile is affected by the expansion of the
+              background, making it the only known dynamical probe of cosmology,
+              complementary to distance-based probes.
+            </p>
+            <p>
+              This is particularly attractive when analyzing the expansion history of
+              our universe through probes like \(q(z)\), where recent DESI results
+              have hinted at decelerating cosmologies. Rodriguez 2026b, in prep.
+            </p>
+          </div>
+
+          <div class="phase-lab reveal" aria-label="Expansion and escape profile simulator">
+            <div class="lab-controls">
+              <div class="slider-control">
+                <span class="control-end">less expansion</span>
+                <label>
+                  <span class="tool-label">Expansion</span>
+                  <input
+                    id="expansion-slider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="50"
+                    step="1"
+                    aria-label="Expansion strength"
+                  >
+                </label>
+                <span class="control-end">more expansion</span>
+              </div>
+              <div class="slider-control">
+                <span class="control-end">less sampling</span>
+                <label>
+                  <span class="tool-label">Spectroscopic sampling</span>
+                  <input
+                    id="cosmo-sampling-slider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="55"
+                    step="1"
+                    aria-label="Cosmology spectroscopic sampling"
+                  >
+                </label>
+                <span class="control-end">more sampling</span>
+              </div>
+            </div>
+            <canvas id="cosmo-canvas" width="920" height="620" aria-label="Simulated cosmological escape profile"></canvas>
+            <div class="metric-row compact-metric" aria-label="Cosmology measured edge fraction">
+              <div>
+                <span>Measured edge</span>
+                <strong id="cosmo-edge-metric">82% of true profile</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section lensing-section" id="lensing" aria-labelledby="lensing-title">
+        <div class="section-kicker">Lensing and Dynamics</div>
+        <div class="section-heading compact">
+          <h2 id="lensing-title">Projection, redshifts, and orbital structure.</h2>
+          <p>
+            My lensing and earlier dynamics work ask how gravitational systems assemble,
+            from galactic nuclei to cluster-scale filaments.
+          </p>
+        </div>
+
+        <div class="highlight-grid">
+          <article class="image-card reveal">
+            <img
+              src="assets/research/magellan-p05-img01.png"
+              alt="Subaru HSC color image of MACSJ0600 with weak-lensing convergence contours"
+            >
+            <div>
+              <p class="project-tag">MACSJ0600</p>
+              <h3>Mapping a cosmic-web node</h3>
+              <p>
+                Subaru/HSC shear shows projected mass structure around MACS J0600.1-2008.
+                Magellan/IMACS spectroscopy will test whether those features are genuine
+                cluster-connected filaments.
+              </p>
+              <p class="paper-citation dark-citation">Rodriguez et al. 2026c (in prep)</p>
+            </div>
+          </article>
+
+          <article class="text-card reveal">
+            <p class="project-tag">Nuclear Dynamics</p>
+            <h3>Eccentric nuclear disks</h3>
+            <p>
+              Studied how galactic mergers can torque and align eccentric nuclear
+              discs, connecting merger dynamics and tidal disruption events.
+            </p>
+            <a href="https://academic.oup.com/mnras/article/503/2/2713/6157765">Rodriguez, Generozov &amp; Madigan 2021</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section teaching-section" id="teaching" aria-labelledby="teaching-title">
+        <div class="section-kicker">Teaching and Outreach</div>
+        <div class="section-heading compact">
+          <h2 id="teaching-title">Astronomy for classrooms, museums, and the public.</h2>
+        </div>
+
+        <div class="teaching-grid">
+          <article class="text-card figure-card reveal">
+            <p class="project-tag">Science Communication Fellowship</p>
+            <h3>Scientist Spotlight</h3>
+            <p>
+              Designed a hands-on demo for children explaining how galaxies can escape
+              from galaxy clusters.
+            </p>
+            <div class="mini-photo-grid">
+              <img src="assets/outreach/scientist-spotlight-demo-1.jpg" alt="Alexander Rodriguez explaining a galaxy-cluster escape demo at Scientist Spotlight">
+              <img src="assets/outreach/scientist-spotlight-demo-2.jpg" alt="Alexander Rodriguez leading an interactive demo with a child at Scientist Spotlight">
+            </div>
+          </article>
+          <article class="text-card figure-card reveal">
+            <p class="project-tag">Planetarium</p>
+            <h3>Museum of Natural History</h3>
+            <p>
+              Served for two years as a planetarium presenter, designing and giving
+              interactive astronomy shows for the public.
+            </p>
+            <img src="assets/outreach/planetarium.jpg" alt="Audience watching a star-filled planetarium show">
+          </article>
+          <article class="text-card reveal">
+            <p class="project-tag">Lead Instructor</p>
+            <h3>ASTRO 127: Naked Eye Astronomy</h3>
+            <p>
+              Led four semesters and eight mini-terms, designing lectures, labs,
+              assignments, and projects on the Sun, Moon, planets, stars, comets,
+              meteors, and the motion of the sky.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section finance-section" id="finance" aria-labelledby="finance-title">
+        <div class="section-kicker">Quantitative Finance</div>
+        <div class="finance-band reveal">
+          <div>
+            <h2 id="finance-title">Astronomy methods for financial markets.</h2>
+            <p>
+              I interned at Wells Fargo in Summer 2025 as a Quantitative Analyst in
+              Market and Counterparty Risk Analytics, using unsupervised learning
+              techniques and multi-factor regression models to study correlated default
+              rates in global portfolios. I am particularly interested in applying
+              machine-learning techniques and data analysis tools I have learned from
+              astronomy to financial markets.
+            </p>
+          </div>
+          <a class="button primary" href="https://drive.google.com/file/d/1sVRMurEThZqBgAG0JTQJ30VnTE05xa3X/view?usp=sharing">Finance resume</a>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-band reveal">
+          <div>
+            <p class="section-kicker">Contact</p>
+            <h2 id="contact-title">Interested in clusters, cosmology, or lensing?</h2>
+          </div>
+          <div class="contact-links" aria-label="Contact links">
+            <a class="button primary" href="mailto:alexcrod@umich.edu">Email</a>
+            <a class="button secondary" href="https://drive.google.com/file/d/1KnfhIVu_Jttw-4w8UOl9AXfZHF-bcs9o/view?usp=drive_link">CV</a>
+            <a class="button secondary" href="https://drive.google.com/file/d/1sVRMurEThZqBgAG0JTQJ30VnTE05xa3X/view?usp=sharing">Resume</a>
+            <a class="button secondary" href="https://orcid.org/0000-0002-8813-9116">ORCID</a>
+            <a class="button secondary" href="https://github.com/alexcrod">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
