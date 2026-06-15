@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alexrodriguez-0.github.io/alex-rodriguez-website/sitemap.xml
