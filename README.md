@@ -1,1 +1,1 @@
-List of relevant files for personal website build.
+Relevant files for personal website build.
